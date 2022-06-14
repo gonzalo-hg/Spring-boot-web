@@ -8,5 +8,20 @@
 </head>
 <body>
    <h1>Hola Spring</h1>
+   <table th:if="${not usuario.isEmpty()}">
+
+		<thead>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+		</thead>
+		<tbody>
+			<tr th:each="usaurio: ${usuarios}">
+				<td th:text="${usuario.nombre}"></td th:text="${usuario.nombre}">
+				<td th:text="${usuario.apellido}"></td>
+				<td th:text="${usuario.email}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
