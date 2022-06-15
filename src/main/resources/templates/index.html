@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="@{/css/style.css}">
+	<title>Document</title>
 </head>
 <body>
-   <h1>Hola Spring</h1>
+   <h1 class="color-rojo">Hola Spring</h1>
+   <h2 class="color-azul">DEcorando con estilos CCS</h2>
+   <img th:src="@{/images/image.png}" alt="">
    <table th:if="${not usuario.isEmpty()}">
 
 		<thead>

@@ -1,20 +1,27 @@
 package com.bolsaideas.spring.web.app.controllers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bolsaideas.spring.web.app.model.Usuario;
 
 @Controller//Componente de Srping como controlador
+@RequestMapping("/app")
 public class IndexControllers {
+
+	@Value("@{${texto.indexcontroller.index.titulo}}")
+	private String textoIndex;
+	@Value("@{${texto.indexcontroller.perfil.titulo}}")
+	private String textPerfil;
+	@Value("@{${texto.indexcontroller.listar.titulo}}")
+	private String textoListar;
 	
 	/**
 	 * Un controlador muestra metodos controladores 
@@ -23,8 +30,9 @@ public class IndexControllers {
 	 */
 	
 	//El requesMapping es de tipo get
-	@GetMapping(path = {"/index","/","/home"})
-	public String index() {
+	@GetMapping(path = {"/index","/","/home",""})
+	public String index(Model model) {
+		model.addAttribute("titulo", textoIndex);
 		return "index";
 	}
 
@@ -36,18 +44,14 @@ public class IndexControllers {
 		usuario.setEmail("gonzalo@gmail.com");
 		
 		model.addAttribute("usuario",usuario);
-		model.addAttribute("titulo", "Perfil del usuario: ".concat(usuario.getNombre()));
+		model.addAttribute("titulo", textPerfil.concat(usuario.getNombre()));
 		
 		return "perfil";
 	}
 	
 	@RequestMapping("/listar")
 	public String listar(Model model) {
-		
-		
-		
-		
-		model.addAttribute("titulo", "Listado de  usaurios:");
+		model.addAttribute("titulo", textoListar);
 
 		return "listar";
 	}
