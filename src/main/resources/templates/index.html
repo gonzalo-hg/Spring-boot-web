@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,20 +11,15 @@
    <h1 class="color-rojo">Hola Spring</h1>
    <h2 class="color-azul">DEcorando con estilos CCS</h2>
    <img th:src="@{/images/image.png}" alt="">
-   <table th:if="${not usuario.isEmpty()}">
-
-		<thead>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Email</th>
-		</thead>
-		<tbody>
-			<tr th:each="usaurio: ${usuarios}">
-				<td th:text="${usuario.nombre}"></td th:text="${usuario.nombre}">
-				<td th:text="${usuario.apellido}"></td>
-				<td th:text="${usuario.email}"></td>
-			</tr>
-		</tbody>
-	</table>
+  
+	<li>
+	<a th:href="@{/params/string(texto='HOla Gonzalo')}">/params/string(texto='HOla Gonzalo')</a>
+	</li>
+	<li>
+	<a th:href="@{/params/mix-params(texto='HOla Gonzalo',numero=7)}">/params/mix-params?HOla Gonzalo&numero=7</a>
+	</li>
+	<li>
+	<a th:href="@{/params/mix-params-request(texto='HOla Gonzalo',numero=7)}">/params/mix-params?HOla Gonzalo&numero=7</a>
+	</li>
 </body>
 </html>

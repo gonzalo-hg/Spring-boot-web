@@ -8,11 +8,12 @@
 	<title th:text="${titulo}"></title>
 </head>
 
+
 <body>
 	<h1 th:text="${titulo}"></h1>
-	<div th:if="${usuario.isEmpty()}">No hay usuarios en la lista</div>
+	<div th:if="${usuarios.size() ==0}">No hay usuarios en la lista</div>
 
-	<table th:if="${not usuario.isEmpty()}">
+	<table th:if="${not usuarios.isEmpty()}">
 
 		<thead>
 			<th>Nombre</th>
@@ -21,7 +22,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="usaurio: ${usuarios}">
-				<td th:text="${usuario.nombre}"></td th:text="${usuario.nombre}">
+				<td th:text="${usuario.nombre}"></td>
 				<td th:text="${usuario.apellido}"></td>
 				<td th:text="${usuario.email}"></td>
 			</tr>

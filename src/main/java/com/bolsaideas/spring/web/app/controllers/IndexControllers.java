@@ -1,5 +1,6 @@
 package com.bolsaideas.spring.web.app.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,18 +53,19 @@ public class IndexControllers {
 	@RequestMapping("/listar")
 	public String listar(Model model) {
 		model.addAttribute("titulo", textoListar);
-
 		return "listar";
 	}
 	
 	@ModelAttribute("usuarios")
 	public List<Usuario> poblarUsuarios(){
-		List<Usuario> usuarios = Arrays.asList(new Usuario("Gonzalo","Gonzalez","zalo@gmail.com"),
+		List<Usuario> usuarios = Arrays.asList(
+				new Usuario("Gonzalo","Gonzalez","zalo@gmail.com"),
 				new Usuario("Gonzalo1","Gonzalez","zalo@gmail.com"),
 				new Usuario("Gonzalo2","Gonzalez","zalo@gmail.com"),
 				new Usuario("Gonzalo3","Gonzalez","zalo@gmail.com"));
 		
 		return usuarios;
-		
 	}
+	
+	
 }

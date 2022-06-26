@@ -13,6 +13,7 @@
    <span  th:text="${usuario.apellido}"></span >
    <br>
    <span  th:if="${usuario.email}" th:text="${usuario.email}"></span >
+   <span  th:if="${usuario.email == null}" th:text="EL usuario no tiene correo"></span >
    <span  th:text="${usuario.apellido}"></span >
 </body>
 </html>
